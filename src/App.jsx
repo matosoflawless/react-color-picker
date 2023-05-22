@@ -1,22 +1,44 @@
 import React, { useState } from "react";
 
 function App() {
-  const [color, setColor] = useState("#FFFFFF");
-  const buttonStyle = { color: color };
-  const handleChange = (event) => {setColor(event.target.value)}
+  const [color1, setColor1] = useState("#FFFFFF");
+  const [color2, setColor2] = useState("#FFFFFF");
+  const buttonStyle = { color: color1 };
+  const [errorText, setErrorText] = useState("");
+
+  const handleChange = (event) => {
+    setColor1(event.target.value);
+  };
+
+  const colorStartsWith = () => {
+    if (color1.startsWith("#") && color1.length === 7) {
+      setErrorText("All good");
+    } else {
+      setErrorText("Invalid Color");
+    }
+  };
+
   return (
     <div className="app">
       <h2>Pick a color!</h2>
+
       <input
         type="color"
-        value={color}
-        onChange={(event) => {
-          setColor(event.target.value);
-        }}
+        value={color1}
+        onChange={(event) => setColor1(event.target.value)}
       />
-      <div className="box" style={{ backgroundColor: color }}></div>
-      <input style={buttonStyle} placeholder={"color"} value={color} onChange={handleChange}></input>
-      <button></button>
+
+      <div className="box" style={{ backgroundColor: color1 }}></div>
+
+      <input
+        style={buttonStyle}
+        placeholder="color"
+        value={color1}
+        onChange={handleChange}
+      />
+
+      <button onClick={colorStartsWith}>Check Color</button>
+      <p>{errorText}</p>
     </div>
   );
 }
