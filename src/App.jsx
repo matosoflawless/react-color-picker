@@ -39,6 +39,26 @@ function App() {
 
       <button onClick={colorStartsWith}>Check Color</button>
       <p>{errorText}</p>
+
+      <h2>Pick a color again!</h2>
+
+      <input
+        type="color"
+        value={color2}
+        onChange={(event) => setColor2(event.target.value)}
+      />
+
+      <div className="box" style={{ backgroundColor: color2 }}></div>
+
+      <input
+        style={buttonStyle}
+        placeholder="color"
+        value={color2}
+        onChange={handleChange}
+      />
+
+      <button onClick={colorStartsWith}>Check Color</button>
+      <p>{errorText}</p>
     </div>
   );
 }
