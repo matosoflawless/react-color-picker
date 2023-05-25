@@ -37,8 +37,12 @@ function App() {
         onChange={handleChange}
       />
 
+<div>
+    <p> </p>
       <button onClick={colorStartsWith}>Check Color</button>
       <p>{errorText}</p>
+      <button onClick={colorStartsWith}>Check Color</button>
+      </div>
 
       <h2>Pick a color again!</h2>
 
@@ -56,9 +60,12 @@ function App() {
         value={color2}
         onChange={handleChange}
       />
-
+  <div>
+    <p> </p>
       <button onClick={colorStartsWith}>Check Color</button>
       <p>{errorText}</p>
+      <button onClick={colorStartsWith}>Check Color</button>
+      </div>
     </div>
   );
 }
